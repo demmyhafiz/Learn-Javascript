@@ -473,13 +473,99 @@ function golfScore(strokes, par) { /* create strokes and par placeholder/paramet
 		return names[7];
 }
 }
-
-console.log(golfScore(2));
-
-
+/*
+console.log(golfScore(2)); */
 
 
+function caseInSwitch(val) {
+	var answer = "";
+	switch(val) { /* switch-case is same as if-else if statement */
+		case 1:
+			answer = "alpha";
+			break; /* used to break/stop if the value that passed by the paramater/placeholder is match with the switch case condition */
+		case 2:
+			answer = "beta";
+			break;
+		case 3:
+			answer = "gamma";
+			break;
+		case 4:
+			answer = "delta";
+			break;
+		default: /* default is same as else in if statement */
+			answer = "wrong input";
+			break;
+	}
+	return answer;
+}
+/*
+console.log(caseInSwitch(2)); */
 
+function sequentialSizes(val) {
+	var answer = "";
+	switch(val) {
+		case 1: /* used for 3 case/if statement with same result, it's just gonna go through the case till met break; */
+		case 2:
+		case 3:
+			answer = "Low";
+			break;
+		case 4:
+		case 5:
+		case 6:
+			answer = "Medium";
+			break;
+		case 7:
+		case 8:
+		case 9:
+			answer = "High";
+			break;
+	}
+	return answer;
+}
+/*
+console.log(sequentialSizes(9)); */
 
+function chainToSwitch(val) {
+	var answer = "";
+	
+	switch(val) {
+		case "bob":
+			answer = "Marley";
+			break;
+		case 42:
+			answer = "The answer";
+			break;
+		case 1:
+			answer = "There is no #1";
+			break;
+		case 99:
+			answer = "Missed me by this much";
+			break;
+		case 7:
+			answer = "Ate nine";
+			break;
+	}
+	return answer;
+}
+/*
+console.log(chainToSwitch(7)); */
+
+function isLess(a, b) {
+	return a < b;
+/* is same as if-else statement. eg. if (a < b) { return true; } else { return false; } */
+}
+/*
+console.log(isLess(10, 15)); */
+
+function abTest(a, b) {
+	
+	if (a < 0 || b < 0) {
+		return undefined; /* returning early pattern from functions. if the value passed by the parameter a or b is 0 or less (minus), executed undefined */
+	}
+
+return Math.round(Math.pow(Math.sqrt(a) + Math.sqrt(b), 2));
+}
+/*
+console.log(abTest(-5, 5)); */
 
 
