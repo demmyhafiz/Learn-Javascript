@@ -568,4 +568,41 @@ return Math.round(Math.pow(Math.sqrt(a) + Math.sqrt(b), 2));
 /*
 console.log(abTest(-5, 5)); */
 
+var count = 0;
 
+function ac(card) {
+	switch(card) {
+		case 2: /* if value passed by param is 2, 3, 4, 5, 6 would be incremented to the count variable by 1 (1 times) */
+		case 3:
+		case 4:
+		case 5:
+		case 6:
+			count++;
+			break;
+		case 10: /* if value passed by param is 10, J, Q, K, A would be decremented to the count variable by 1 (1 times) */
+		case "J":
+		case "Q":
+		case "K":
+		case "A":
+			count--;
+			break;
+	}
+	
+	var holdbet = "Hold"; /* if the count result is 0 or less, then return Hold */
+	if (count > 0) {
+		holdbet = "Bet"; /* if the result of count variable is more than 0, return Bet */
+	}
+	
+	return count + " " + holdbet;
+		
+}
+
+ac(2); ac(3); ac(7); ac("K"); ac("A");
+/* passed ac by 2 (count is 0, now 0 + 1 = 1), then passed ac by 3 (count is 1, now 1 + 1 = 2,
+then passed ac by 7 (7 is not in the case, so nothing will be increment/decrement the count variable,
+then passed ac by "K" (count is 2, now 2 - 1 = 1), then passed ac by "A" (count is 1, now 1 - 1 = 0),
+then last passed by ac by 4 (count is 0, now 0 + 1 = 1), the last result of count is 1, 1 is more than 0,
+so count = 1 + Bet (1 Bet)
+*/
+
+console.log(ac(4));
