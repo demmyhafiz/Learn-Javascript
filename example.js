@@ -604,5 +604,53 @@ then passed ac by "K" (count is 2, now 2 - 1 = 1), then passed ac by "A" (count 
 then last passed by ac by 4 (count is 0, now 0 + 1 = 1), the last result of count is 1, 1 is more than 0,
 so count = 1 + Bet (1 Bet)
 */
+/*
+console.log(ac(4)); */
 
-console.log(ac(4));
+var myDog = { /* this is javascript Object */
+	"name": "Quincy", /* "name": is property of myDog object */
+	"legs": 2, /* 2 is value of legs property in myDog object */
+	"tails": 1,
+	"friends": ["nothing"]
+};
+/*
+console.log(myDog); */
+
+var testObj = {
+	"hat": "ballcap",
+	"shirt": "jersey",
+	"shoes": "cleats"
+};
+
+var hatValue = testObj.hat; /*this is how to accessing object properties with dot/period(.) notation */
+var shirtValue = testObj.shirt; /* write the property name of the object. now shirtValue variable value is jersey */
+/*
+console.log(hatValue); */
+
+var testObject = {
+	"an entree": "hamburger",
+	"my side": "veggies",
+	"the drink": "water"
+};
+
+var entreeValue = testObject["an entree"]; /*this is how to accessing object properties with bracket notation */
+var drinkValue = testObject['the drink']; /* write the property name of the object. now drinkValue variable value is water */
+/*
+console.log(entreeValue); */
+
+var testObjectx = {
+	12: "Namath",
+	16: "Montana",
+	19: "Unitas"
+};
+
+var playerNumber = 16; /* make variable with the value of properties object */
+var player = testObjectx[playerNumber]; /* access properties object by the value of variable that has been created before */
+/*
+console.log(player); */
+
+myDog.name = "Shiro"; /* this is how to updating object properties using dot notaion */
+/* now the name properties would change to SHiro from Quincy */
+/*
+console.log(myDog); */
+
