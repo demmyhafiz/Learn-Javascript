@@ -650,7 +650,54 @@ var player = testObjectx[playerNumber]; /* access properties object by the value
 console.log(player); */
 
 myDog.name = "Shiro"; /* this is how to updating object properties using dot notaion */
-/* now the name properties would change to SHiro from Quincy */
+/* now the name properties would change to Shiro from Quincy */
 /*
 console.log(myDog); */
+
+myDog["bark"] = "woof!"; /* add new properties to an object with bracket notation */
+/* now the properties of myDog object would add 1 properties and value, that's bark = woof */
+/*
+console.log(myDog); */
+
+delete myDog.tails; /* delete a properties of an object with delete keyword */
+/*
+console.log(myDog); */
+
+function phoneticLookup(val) {
+	var result = "";
+	
+	var lookup = { /* use object for lookups instead of switch case statement */
+		"alpha": "Adams",
+		"bravo": "Boston",
+		"charlie": "Chicago",
+		"delta": "Denver",
+		"echo": "Easy",
+		"foxtrot": "Frank"
+	};
+	
+	result = lookup[val];
+/* using object for lookups with bracket notation. object lookup and what its passed by the paramater (val) value in object properties
+its gonna be the value of the result from the properties value of lookup object */
+	
+	return result;
+}
+/*
+console.log(phoneticLookup("charlie")); */
+
+var myObj = {
+	gift: "pony",
+	pet: "kitten",
+	bed: "sleigh"
+};
+
+function checkObj(checkProp) {
+	if (myObj.hasOwnProperty(checkProp)) { /* hasOwnProperty method used for testing objects properties */
+		return myObj[checkProp]; /* if the value passed by checkProp parameter is same as the properties in myObj object, return that properties value */
+	} else { /* if not, return not found. because there is no properties that match with the value passed by */
+		return "Not found"
+	}
+}
+
+console.log(checkObj("pet"));
+
 
