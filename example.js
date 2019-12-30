@@ -697,7 +697,122 @@ function checkObj(checkProp) {
 		return "Not found"
 	}
 }
+/*
+console.log(checkObj("pet")); */
 
-console.log(checkObj("pet"));
+var myMusic = [ /* this is an array (1 array, 2 object in myMusic variable) */
+{ /* this is an object */
+	"artist": "Billy Joel", /* there's an object in array */
+	"title": "Piano Man",
+	"release_year": 1973,
+	"formats": [ /* there's an array in a object properties */
+	"CD",
+	"8T",
+	"LP"
+	],
+	"gold": true
+}, /* end first object */
 
+{ /* this is second object in array */
+	"artist": "Beau Carnes",
+	"title": "Cereal Man",
+	"release_year": 2003,
+	"formats": [
+	"Youtube"
+	]
+} /* end second object */
+] /* end of an array */
+/*
+console.log(myMusic); */
+
+var myStorage = {
+	"car": {
+		"inside": {
+			"glove box": "maps",
+			"passenger seat": "crumbs"
+		},
+		"outside": {
+			"trunk": "jack"
+		}
+	}
+};
+
+var gloveBoxContents = myStorage.car.inside["glove box"]; /* when accessing properties name with space( ) naming it should use bracket notation [] */
+/* this is how to access value inside nested object */
+/*
+console.log(gloveBoxContents); */
+
+var myPlants = [
+{ /* first object in array */
+	type: "flowers",
+	list: [
+	"rose",
+	"tulip",
+	"dandelion"
+]
+},
+{ /* second object in array */
+	type: "trees",
+	list: [
+	"fir",
+	"pine",
+	"birch"
+	]
+}
+];
+
+var secondTree = myPlants[1].list[2];
+/* select object, then which array index, then which properties name, then which array index to select/access */
+/*
+console.log(secondTree); */
+
+var collection = {
+	"2548": {
+		"album": "Slippery When Wet",
+		"artist": "Bon Jovi",
+		"tracks": [
+		"Let It Rock",
+		"You Give Love a Bad Name"
+		]
+	},
+	"2468": {
+		"album": "1999",
+		"artist": "Prince",
+		"tracks": [
+		"1999",
+		"Little Red Corvette"
+		]
+	},
+	"1245": {
+		"artist": "Robert Palmer",
+		"tracks": []
+	},
+	"5439": {
+		"album": "ABBA Gold"
+	}
+};
+
+var collectionCopy = JSON.parse(JSON.stringify(collection));
+
+function updateRecords(id, prop, value) {
+	if (value === "") {
+		delete collection[id][prop]; /* used to delete properties and value IF the value passed by paramater is empty string */
+	} else if (prop === "tracks") {
+		collection[id][prop] = collection[id][prop] || []; /* IF the id and prop passed by parameter is SAME as in the value properties selected and when the VALUE is new/not same in the value properties itself OR the target properties VALUE is EMPTY string, then add/push new value to the propertes */
+		collection[id][prop].push(value); /* used to add/push new value to the properties */
+	} else {
+		collection[id][prop] = value; /* if the id prop and value is SAME as in the object properties and values, not change/update/delete anything */
+	}
+	/* if the prop is ARTIST OR ALBUM, the properties value itself would be override it with new value passed by parameter */
+	/* if the prop name is not same/new in that id properties, add/push new prop (properties) and value (value) in it */
+	return collection;
+};
+
+updateRecords(1245, "tracks", "Baby"); /* add/push new value in 1245 tracks properties */
+updateRecords(5439, "artist", "BABA"); /* add/push new properties and value to the 5439 properties */
+updateRecords(5439, "tracks", "BEBE"); /* add/push new properties and value to the 5439 properties */
+updateRecords(2468, "artist", "Jeremy"); /* override 2468 artist value with Jeremy */
+updateRecords(2548, "tracks", "Bad Love"); /* add/push new value to the 2548 tracks properties value */
+updateRecords(2468, "tracks", ""); /* delete 2468 tracks properties and value */
+console.log(updateRecords(1245, "artist", "Robert Palmer"));
 
