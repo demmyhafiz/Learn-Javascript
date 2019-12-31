@@ -860,6 +860,7 @@ for(var i = 0; i < ourArr.length; i++) { /* i < 4 */
 /*
 console.log(ourTotal); */
 
+/* not understand yet */
 function multiplyAll(arr) {
 	var product = 1;
 	
@@ -886,6 +887,7 @@ do {
 /*
 console.log(iDo, myArrayDo); */
 
+/* not understand yet */
 var contacts = [
 {
 	"firstName": "Akira",
@@ -917,10 +919,30 @@ function lookUpProfile(name, prop) {
 }
 
 var data = lookUpProfile("Akira", "likes");
+/*
+console.log(data); */
 
-console.log(data);
+function randomFraction() {
+	return Math.random(); /* generate random fraction/decimal number with zero first number (can't never be 1) */
+}
+/*
+console.log(randomFraction()); */
 
+function randomWholeNumber() {
+	return Math.floor(Math.random() * 10); /* round down to the nearest whole number. randow number * 10 = xx, then round the number to the nearest whole number(non decimal between 0-9) */
+}
+/*
+console.log(randomWholeNumber()); */
 
+function randomRange(myMin, myMax) {
+	return Math.floor(Math.random() * (myMax - myMin + 1)) + myMin;
+	/* get the random number. then multiply it to the result of mymax-mymin+1, then the result all of it + mymin */
+	/* the result is between 10 to 20 number */
+}
+
+var myRandom = randomRange(10, 20);
+/*
+console.log(myRandom); */
 
 	
 	
