@@ -1,3 +1,5 @@
+/* freeCodeCamp material */
+
 /* Data type:
 undefined (something that has not been defined. eg. var foo;)
 null (nothing. eg. var foo = null)
@@ -9,21 +11,18 @@ object (can store a lot different key value pairs. eg. )
 */
 
 var myName = "Demmy"; /* var used by whole program */
-let yourName = "Hafiz"; /* let used within the scope of where its declare */
+let yourName = "Hafiz"; /* let used within the scope of where its declare. doesnt let it declare/assign a variable value twice */
 const ourName = "Janitra"; /* used for variable that never changed (permanent) */
-
+/* "use strict" is used to enable strict mode which catch common coding mistakes and unsafe actions. use it at the top of javascript file or just in the function */
 var a; /* declare a variable */
 var b = 1; /* assign a value to variable */
 			/* var b is declaring a variable, then 1 initialize it to variable */
-
 var c = 10 + 10; /* adding numbers */
 var d = 10 - 5; /* subtracting numbers */
 var c = 10 * 10; /* multiplying numbers */
 var e = 10 / 5; /* dividing numbers */
-
 c = c + 1; /* incrementing number */
 c++; /* is equal to c = c + 1; */
-
 d = d - 1; /* decrementing number */
 d--; /* is equal to d = d - 1; */
 
@@ -944,16 +943,208 @@ var myRandom = randomRange(10, 20);
 /*
 console.log(myRandom); */
 
+function convertToInteger(str) {
+	return parseInt(str); /* convert string to integer, beside that return NaN */
+}
+/*
+console.log(convertToInteger("10"));
+console.log(convertToInteger(true)); */
+
+function convertFromBinary(str) {
+	return parseInt(str, 2) /* use the parseInt function with a Radix. convert base 2 to base 10 */
+/* radix specifies the base of the number in the . base 2 = binary, base 7, base 8, default base 10 = integer (0-99) */
+}
+/*
+console.log(convertFromBinary("11001")); */
+
+function checkEqual(a, b) {
+	return a === b ? true : false;
+/* is same as
+if(a === b) {
+	return true;
+}
+else {
+	return false;
+}
+
+	and
+
+return a === b;
+*/
+}
+/*
+console.log(checkEqual(1, 2)); */
+
+function checkSign(num) {
+	return num > 0 ? "positive" : num < 0 ? "negative" : "zero";
+/* if num > 0 then print positive, else if num < 0 then print negative, else print zero */
+}
+/*
+console.log(checkSign()); */
+
+function checkScope() {
+	"use strict";
+/*	var i = "function scope"; /* declare globally (all block statement can access it) */
+	let i = "function scope"; /* declare limited to the block statement (ontly this block statement) */
+	if (true) {
+/*		i = "block scope"; /* if it is use var(or not use var/let/const then it'll set automatically be global), it will override "function scope" to this value */
+	let i = "block scope"; /* if it is use let, the variable will limited(wouldn't override) to this block statement {} */
+		console.log("Block scope i is: ", i);
+	}
+	console.log("Function scope i is: ", i);
+	return i;
+}
+/*
+console.log(checkScope()); */
+
+function printManyTimes(str) {
+	"use strict";
 	
+	const SENTENCE = str + " is cool!"; /* const should use all CAPITAL letter */
 	
+/*	SENTENCE = str + " is amazing!"; /* const cannot be re-assign its value (read-only). */
 	
+	for(let i = 0; i < str.length; i+=2) { /* always use const and let in a real program to prevent problem */
+		console.log(SENTENCE);
+	}
+	return SENTENCE;
+}
+/*
+console.log(printManyTimes("Demmy")); */
+
+const S = [5, 7, 2];
+function editInPlace() {
+	"use strict";
 	
+/*	S = [2, 5, 7]; /* cannot re-assign/mutate a variable declare by const */
+	S[0] = 2; /* but we can re-assign/mutate it by used bracket notation */
+	S[1] = 5;
+	S[2] = 7; 
+}
+editInPlace();
+/*
+console.log(S); */
+
+function freezeObj() {
+	"use strict";
+	const MATH_CONSTANTS = {
+		PI: 3.14
+	};
+	/*
+	Object.freeze(MATH_CONSTANTS); /* use to freeze an object (prevent the item in the object to change) */
 	
+	try {
+		MATH_CONSTANTS.PI = 99;
+	}
+	catch ( ex ) {
+		console.log(ex);
+	}
+	return MATH_CONSTANTS.PI;
+}
+const PI = freezeObj();
+/*
+console.log(freezeObj()); */
+
+/* not understand yet */
+const MAGIC = () => new Date(); /* use arrow functions to write concise anonymous functions */
+/* is same as 
+const MAGIC = function() {
+	return new Date();
+};
+*/
+/*
+console.log(MAGIC); */
+
+const MYCONCAT = (arr1, arr2) => arr1.concat(arr2); /* use arrow functions with parameters */
+/* is same as
+var myConcat = function(arr1, arr2) {
+	return arr1.concat(arr2);
+};
+*/
+/*
+console.log(MYCONCAT([1,2],[3,4,5])); */
+
+/* not understand yet */
+const realNumberArray = [4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2];
+
+const squareList = (arr) => { /* write higher order arrow functions */
+	const squaredIntegers = arr.filter(num => Number.isInteger(num) && num > 0).map(x => x * x);
+	return squaredIntegers;
+};
+
+const squaredIntegers = squareList(realNumberArray);
+/*
+console.log(squaredIntegers); */
+
+const increment = (function() { /* this is default function. write higher order arrow functions */
+	return function increment(number, value = 1) {
+		return number + value;
+	};
+})();
+/*
+console.log(increment(5,5));
+console.log(increment(5)); */
+
+/* not understand yet */
+const SUM = (function() {
+	return function SUM(...args) { /* used the rest operator with function parameter */
+/* is same as
+	return function sum(x, y, z) {
+		const args = [x, y, z]; /* convert these into an array */
+		return args.reduce((a, b) => a + b, 0);
+	};
+	})();
+/*
+console.log(SUM(1, 2, 3)); /* it can alose add any number of numbers in it */
+
+/* not understand yet */
+const ARR1 = ["JAN","FEB","MAR","APR","MAY"];
+let ARR2;
+(function() {
+	ARR2 = [...ARR1]; /* use the spread operator to evaluate arrays in-place. it expands/spread out in already existing array */
+	/* ARR2 equal all of the contents of ARR1 */
+	ARR1[0] = "what"
+})();
+/*
+console.log(ARR2); */
+
+var voxel = { x: 3.6, y: 7.4, z: 6.54 }; /* this is an object */
+
+/*
+var x = voxel.x; /* this is an old way to destructing variable from object *//*
+var y = voxel.y;
+var z = voxel.z; /* z = 6.54 */
+const { x : aaa, y : bbb, z : ccc } = voxel; /* a = 3.6, b = 7.4, c = 6.54 */
+
+const AVG_TEMPERATURES = {
+	today: 77.5,
+	tomorrow: 79
+};
+
+function getTempOfTmrw(avgTemperatures) {
+	"use strict";
 	
+	const { tomorrow : tempOfTomorrow } = avgTemperatures; // tempOfTomorrow = 79 from tomorrow AVG_TEMPERATURES object
+	return tempOfTomorrow;
+}
+/*
+console.log(getTempOfTmrw(AVG_TEMPERATURES)); */
+
+const LOCAL_FORECAST = {
+	today: { min: 72, max: 83 },
+	tomorrow: { min: 73.3, max: 84.6 }
+};
+
+function getMaxOfTmrw(forecast) {
+	"use strict";
 	
-	
-	
-	
+	const { tomorrow : { max : maxOfTomorrow }} = forecast;
+	// tomorrow.max = maxOfTomorrow from forecast object
+	return maxOfTomorrow;
+}
+/*
+console.log(getMaxOfTmrw(LOCAL_FORECAST)); */
+
 	
 	
 	
