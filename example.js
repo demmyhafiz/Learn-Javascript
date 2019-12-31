@@ -883,5 +883,67 @@ do {
 	myArrayDo.push(iDo); /* add new array(10) to the myArrayDo */
 	iDo++; /* 10+1=11 */
 } while (iDo < 5) /* 11 < 5 = false, stop looping */
+/*
+console.log(iDo, myArrayDo); */
+
+var contacts = [
+{
+	"firstName": "Akira",
+	"lastName": "Laine",
+	"number": "0543236543",
+	"likes": ["Pizza", "Coding", "Brownie Points"]
+},
+{
+	"firstName": "Harry",
+	"lastName": "Potter",
+	"number": "0994372684",
+	"likes": ["Hogwarts", "Magic", "Magrid"]
+},
+{
+	"firstName": "Sherlock",
+	"lastName": "Holmes",
+	"number": "0487345643",
+	"likes": ["Intriguing Cases", "Violin"]
+}
+];
+
+function lookUpProfile(name, prop) {
+	for(var i = 0; i < contacts.length; i++) {
+		if(contacts[i].firstName === name) { /* if the firstName value is same as the value passed by the name paramater, then output the value */
+			return contacts[i][prop] || "No such property";
+		}
+	}
+	return "No such contact";
+}
+
+var data = lookUpProfile("Akira", "likes");
+
+console.log(data);
+
+
+
 	
-console.log(iDo, myArrayDo);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
