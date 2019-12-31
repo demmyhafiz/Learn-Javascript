@@ -1145,9 +1145,91 @@ function getMaxOfTmrw(forecast) {
 /*
 console.log(getMaxOfTmrw(LOCAL_FORECAST)); */
 
+const [z, x, , y] = [1, 2, 3, 4, 5, 6]; // use , , to destructing specific assignment from arrays
+/*
+console.log(z, x, y); */
+
+let aA = 8, bB = 6;
+(() => { // not understand yet
+"use strict";
+[aA, bB] = [bB, aA]
+})();
+/*
+console.log(aA);
+console.log(bB); */
+
+const SOURCE = [1,2,3,4,5,6,7,8,9,10];
+function removeFirstTwo(list) {
 	
+	const [ , , ...arr] = list; /* use destructing assignment with the rest operator */
+	// , , used to remove the first two elements in array
+	return arr;
+}
+
+const arr = removeFirstTwo(SOURCE);
+/*
+console.log(arr);
+console.log(SOURCE); */
+
+const stats = {
+	max: 56.76,
+	standard_deviation: 4.34,
+	median: 34.54,
+	mode: 23.87,
+	min: -9.75,
+	average: 35.85
+};
+
+const half = (function() {
+	return function half({ max, min }) { // use destructing assignment to pass an object as a functions parameters. just take/get what it need (not all the properties)
+		return (max + min) / 2.0;
+	};
+})();
+/*
+console.log(stats);
+console.log(half(stats)); */
 	
-	
+const person = {
+	name: "Zodiac",
+	age: 50
+};
+
+const greeting = `Hello, my name is ${person.name}!
+I am ${person.age} years old.`;
+// this is how to create strings using template literals. it can use enter space, use variable to get data value in it
+/*
+console.log(greeting); */
+
+const resultLiteral = {
+	success: ["max-length", "no amd", "prefer-arrow-function"],
+	failure: ["no-var", "var-on-top", "line-break"],
+	skipped: ["id-blacklist", "no-dup-keys"]
+};
+
+function makeList(arr) {
+	const resultDisplayArray = [];
+	for (let i = 0; i < arr.length; i++) {
+		resultDisplayArray.push(`<li class="text-warning">${arr[i]}</li>`) // automatically add/push the array based on the target array in object
+	// run first 0 = no-var, 0+1=1 = var-on-top, 1+1=2 = line-break
+	}
+	return resultDisplayArray;
+}
+const resultDisplayArray = makeList(resultLiteral.failure); // arr parameter passed by resultLiteral.failure because it must return the value in it
+/*
+console.log(resultDisplayArray); */
+
+const createPerson = (name, age, gender) => ( { name, age, gender } );
+/* is same as
+return {
+	name: name, // name properties would be assign by name passed by parameter
+	age: age,
+	gender: gender
+};
+*/
+/*
+console.log(createPerson("Zodiac", 50, "Male")); */
+
+
 	
 	
 	
