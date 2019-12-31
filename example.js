@@ -1229,8 +1229,43 @@ return {
 /*
 console.log(createPerson("Zodiac", 50, "Male")); */
 
+const bicycle = {
+	gear: 2,
+	setGear(newGear) { // this is a function(newGear)
+		"use strict";
+		this.gear = newGear;
+	}
+};
 
-	
+bicycle.setGear(3); //3 pass to newGear parameter, then assign it to setGear properties
+/*
+console.log(bicycle.gear); */
+
+class SpaceShuttle { // use class syntax to define a constru function
+	constructor(targetPlanet){
+/* is same as
+var SpaceShuttle = function(targetPlanet){
+*/
+		this.targetPlanet = targetPlanet;
+	}
+}
+var zeus = new SpaceShuttle("Jupiter");
+/*
+console.log(zeus.targetPlanet); */
+
+function makeClass() {
+	class Vegetable { // initialize Vegetable variable to creating object
+		constructor(name){ // this is a properties of Vegetable object, as well as placeholder/parameter
+			this.name = name; // initialize name properties to the Vegetable object
+		}
+	}
+	return Vegetable;
+}
+const Vegetable = makeClass(); // now Vegetable is a variable with value of name properties but no value
+const carrot = new Vegetable("Carrot"); // creat carrot variable, then assign it from Vegetable object name properties
+
+console.log(carrot.name);
+
 	
 	
 	
