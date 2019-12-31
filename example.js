@@ -814,5 +814,74 @@ updateRecords(5439, "tracks", "BEBE"); /* add/push new properties and value to t
 updateRecords(2468, "artist", "Jeremy"); /* override 2468 artist value with Jeremy */
 updateRecords(2548, "tracks", "Bad Love"); /* add/push new value to the 2548 tracks properties value */
 updateRecords(2468, "tracks", ""); /* delete 2468 tracks properties and value */
-console.log(updateRecords(1245, "artist", "Robert Palmer"));
+/*
+console.log(updateRecords(1245, "artist", "Robert Palmer")); */
 
+var myArrayWhile = [];
+var i = 0;
+
+while(i < 5) {
+	myArrayWhile.push(i);
+	i++; /* 0+1=1, 1+1=2, 2+1=3, 3+1=4 */
+}
+/*
+console.log(myArrayWhile); */
+
+var ourArrayFor = [];
+
+for(var i = 0; i < 5; i++) { /* initializitation, condition, and incrementing in 1 parentheses */
+	ourArrayFor.push(i);
+}
+/*
+console.log(ourArrayFor); */
+
+var ourArrayOdd = [];
+
+for(var i = 0; i < 10; i += 2) { /* 0+2=2, 2+2=4, 4+2=6, 6+2=8 */
+	ourArrayOdd.push(i);
+}
+/*
+console.log(ourArrayOdd); */
+
+var ourArrayBackward = [];
+
+for(var i = 10; i > 0; i -= 2) { /* 10-2=8, 8-2=6, 6-2=4, 4-2=2 */
+	ourArrayBackward.push(i);
+}
+/*
+console.log(ourArrayBackward); */
+
+var ourArr = [9, 10, 11, 12];
+var ourTotal = 0;
+
+for(var i = 0; i < ourArr.length; i++) { /* i < 4 */
+	ourTotal += ourArr[i]; /* 0 = 0+9=9(run first i=0 (index 0 is 9) in array, then now ourTotal is 9, 9 = 9+10=19(because i=0+1=1(index 1 is 10) in array */
+}
+/*
+console.log(ourTotal); */
+
+function multiplyAll(arr) {
+	var product = 1;
+	
+	for(var i = 0; i < arr.length; i++) {
+		for(var j = 0; j < arr[i].length; j++) {
+			product *= arr[i][j]; /* run first i=0, j=0 (index i=0 is first index in array, then index j=1 is first value in array is 1 */
+			/* 1*1=1. i=0, j=0+1=1 (first index, second value in array is 2) 1*2=2 */
+		}
+	}
+	
+	return product;
+}
+ var product = multiplyAll([[1,2],[3,4],[5,6,7]]);
+ /*
+ console.log(product); */
+ 
+var myArrayDo = [];
+var iDo = 10;
+
+do {
+	myArrayDo.push(iDo); /* add new array(10) to the myArrayDo */
+	iDo++; /* 10+1=11 */
+} while (iDo < 5) /* 11 < 5 = false, stop looping */
+	
+console.log(iDo, myArrayDo);
