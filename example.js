@@ -1263,12 +1263,34 @@ function makeClass() {
 }
 const Vegetable = makeClass(); // now Vegetable is a variable with value of name properties but no value
 const carrot = new Vegetable("Carrot"); // creat carrot variable, then assign it from Vegetable object name properties
+/*
+console.log(carrot.name); */
 
-console.log(carrot.name);
+// not understand yet
+function makeClassTemp() {
+	class Thermostat {
+		constructor(temp) {
+			this._temp = 5/9 * (temp - 32);
+		}
+		get temperature() { // use getters ans setters to control access to an object
+			return this._temp;
+		}
+		set temperature(updatedTemp) {
+			this._temp = updatedTemp;
+		}
+	}
+	return Thermostat;
+}
 
+const Thermostat = makeClassTemp();
+const thermos = new Thermostat(76);
+let temp = thermos.temperature;
+thermos.temperature = 26;
+temp = thermos.temperature;
+
+console.log(temp);
 	
-	
-	
+
 	
 	
 	
