@@ -1,12 +1,16 @@
 /* freeCodeCamp material */
+// +
+/* Traversy Media - Javascript crash course */
 
 /* Data type:
+// primitive data
 undefined (something that has not been defined. eg. var foo;)
 null (nothing. eg. var foo = null)
 boolean (true / false. eg. var foo = true)
 string (a sentence. eg. var foo = "Hi!")
 symbol (immutable primitive value that is unique. eg var foo = Symbol();)
-number/integer (is number)
+number/integer (is number) *theres no float or decimal data type in JS
+//
 object (can store a lot different key value pairs. eg. )
 */
 
@@ -1287,8 +1291,8 @@ const thermos = new Thermostat(76);
 let temp = thermos.temperature;
 thermos.temperature = 26;
 temp = thermos.temperature;
-
-console.log(temp);
+/*
+console.log(temp); */
 	
 
 	
