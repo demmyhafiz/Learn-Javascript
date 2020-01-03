@@ -41,9 +41,60 @@ const s = "technology, computers, IT, code";
 console.log(s.split(', ')); // split a string into an array , ('') is a parameter that takes what it want to split by (EXCLUDE what it won't to take)
 */
 
+// Arrays = variables that hold multiple values
 
+// This is an OLD WAYS
+/*
+const numbers = new Array(1,2,3,4,5); // new is a constructor (eg. constructing an array)
+/*
+// Should be like this
+/*
+const fruits = ['apples', 'oranges', 'pears']; // JS can have multiple data types in Arrays
 
+console.log(fruits[2]); // this is how to access Arrays with [] (brackets with value)
+*/
+/*
+console.log(fruits);
 
+// This is an OLD WAYS to ADD ON Arrays
+fruits[3] = 'grapes';
+
+// Should be like this
+fruits.push('mangos'); // .push to add to the END of Arrays
+
+fruits.unshift('strawberries'); // .unshift to add to the START of Arrays
+
+fruits.pop(); // to remove/delete/take the END of Arrays values
+
+fruits.shift(); // to remove/delete/take the START of Arrays values
+*/
+
+// Object Literals = key value pairs
+const person = {
+	firstName: 'John',
+	lastName: 'Doe',
+	age: 30,
+	hobbies: ['music', 'movies', 'sports'],
+	address: { // this is an object inside/embedded in an object
+		street: '50 main st',
+		city: 'Boston',
+		state: 'MA'
+	}
+}
+
+console.log(person.firstName); // this is how to access object properties values with . (dot) syntax
+console.log(person.hobbies[1]); // this is how to access array values inside an object
+console.log(person.address.city); // this is how to access an object inside an object
+console.log(person.firstName, person.lastName); // this is how to log more than one properties values with , (comma)
+
+// desctructuring to create variables from object properties
+const { firstName, lastName, address: { city }} = person; // pulling out firstName, lastName, city from address object, all of this from person object
+
+console.log(firstName, city);
+
+person.email = 'john@gmail.com'; // add properties to an object
+
+console.log(person);
 
 
 
