@@ -97,7 +97,7 @@ person.email = 'john@gmail.com'; // add properties to an object
 
 console.log(person);
 */
-
+/*
 const todos = [ // arrays of object (object in arrays)
 {
 	id: 1,
@@ -115,6 +115,7 @@ const todos = [ // arrays of object (object in arrays)
 	isCompleted: false
 }
 ];
+*/
 /*
 console.log(todos);
 console.log(todos[1].text); // this is how to access object properties values in an arrays
@@ -164,16 +165,52 @@ const todoText = todos.map(function(todo) { // loop through then return an array
 
 console.log(todoText);
 */
-
+/*
 const todoCompleted = todos.filter(function(todo) {
 	return todo.isCompleted === true; // it's just takes the object that has properties true / the condition is true
+}).map(function(todo) { // chaining with other methods
+	return todo.text; // so it's output that isCompleted is true, then take only text values from it
 });
 
 console.log(todoCompleted);
+*/
 
+// If conditionals
 
+const x = 10;
+const y = 11;
+/*
+if(x === 10) {
+	console.log('x is 10');
+} else if(x > 10) {
+	console.log('x is greater than 10');
+} else {
+	console.log('x is less than 10');
+}
+*/
+/*
+if(x > 5 || y > 10) { // it should be x MORE than 5 OR y MORE than 10, ONE of them has to be TRUE
+	console.log('x is more than 5 or y is more than 10');
+}
+if(x > 5 && y > 10) { // this should be x MORE than 5 AND y MORE than 10, BOTH of them hs to be TRUE
+	console.log('X is more than 5 or y is more than 10');
+}
+*/
 
+const color = x > 10 ? 'red' : 'blue'; // ? is "THEN if it's TRUE", : is "ELSE if it's FALSE"
+console.log(color);
 
+switch(color) { // IF the color result is red, blue, or not both
+	case 'red': // IF it's red
+		console.log('color is red');
+		break;
+	case 'blue': // IF it's blue
+		console.log('color is blue');
+		break;
+	default: // aka ELSE, if the color result is not both of them
+		console.log('color is NOT red or blue');
+		break;
+}
 
 
 
