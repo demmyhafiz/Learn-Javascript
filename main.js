@@ -196,7 +196,7 @@ if(x > 5 && y > 10) { // this should be x MORE than 5 AND y MORE than 10, BOTH o
 	console.log('X is more than 5 or y is more than 10');
 }
 */
-
+/*
 const color = x > 10 ? 'red' : 'blue'; // ? is "THEN if it's TRUE", : is "ELSE if it's FALSE"
 console.log(color);
 
@@ -211,8 +211,19 @@ switch(color) { // IF the color result is red, blue, or not both
 		console.log('color is NOT red or blue');
 		break;
 }
+*/
 
+/*
+function addNums(num1, num2) { // this is a function
+	return num1 + num2;
+}
 
+console.log(addNums(5,5));
+*/
+
+const addNums = (num1, num2) => num1 + num2; // convert it into arrow function
+
+console.log(addNums(6,6));
 
 
 
