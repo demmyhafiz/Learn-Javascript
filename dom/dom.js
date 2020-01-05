@@ -208,9 +208,9 @@
 
 // box.addEventListener('mousemove', runEvent);
 
- var itemInput = document.querySelector('input[type="text"]');
- var form = document.querySelector('form');
- var select = document.querySelector('select');
+// var itemInput = document.querySelector('input[type="text"]');
+// var form = document.querySelector('form');
+// var select = document.querySelector('select');
 
 // temInput.addEventListener('keydown', runEvent);
 // itemInput.addEventListener('keyup', runEvent);
@@ -227,11 +227,11 @@
 // select.addEventListener('change', runEvent);
 // select.addEventListener('input', runEvent);
 
- form.addEventListener('submit', runEvent);
+// form.addEventListener('submit', runEvent);
 
- function runEvent(e){
-  e.preventDefault();
-  console.log('EVENT TYPE: '+e.type);
+// function runEvent(e){
+//  e.preventDefault();
+//  console.log('EVENT TYPE: '+e.type);
 
   //console.log(e.target.value);
   // document.getElementById('output').innerHTML = '<h3>'+e.target.value+'</h3>';
@@ -239,4 +239,69 @@
   // output.innerHTML = '<h3>MouseX: '+e.offsetX+' </h3><h3>MouseY: '+e.offsetY+'</h3>';
 
    // document.body.style.backgroundColor = "rgb("+e.offsetX+","+e.offsetY+", 40)";
- }
+// }
+
+// EXAMPLE PROJECT
+
+var form = document.getElementById('addForm');
+var itemList = document.getElementById('items');
+var filter = document.getElementById('filter');
+
+// Form submit event
+form.addEventListener('submit', addItem); // when it HIT the submit button
+// Delete event
+itemList.addEventListener('click', removeItem); // when the items is CLICKED
+// Filter event
+filter.addEventListener('keyup', filterItem);
+
+// Add items
+function addItem(e){
+	e.preventDefault();
+	
+	// Get input values
+	var newItem = document.getElementById('item').value; // get the item value
+	
+	// Create new <li> tags element
+	var li = document.createElement('li');
+	// Add class
+	li.className = 'list-group-item';
+	// Add text node with input value
+	li.appendChild(document.createTextNode(newItem));
+	// Create delete button element
+	var deleteBtn = document.createElement('button');
+	// Add classes to delete button
+	deleteBtn.className = 'btn btn-danger btn-sm float-right delete';
+	// Append text node
+	deleteBtn.appendChild(document.createTextNode('x'));
+	// Append button to <li> tags
+	li.appendChild(deleteBtn);
+	// Append <li> to list
+	itemList.appendChild(li);
+}
+
+// Remove item
+function removeItem(e){
+	if(e.target.classList.contains('delete')) { // this should be element that has DELETE class
+		if(confirm('Are you sure')) { // then show alert that say this
+			var li = e.target.parentElement; // if it hits OK/YES then get the <li> tag aka button DELETE class parent
+			itemList.removeChild(li); // then remove the <li> that CLICKED ON
+		}
+	}
+}
+
+// Filter items
+function filterItem(e){
+	// convert text to loewecase
+	var text = e.target.value.toLowerCase(); // convert the value that passed in to text to lowercase
+	// Get <li> tags
+	var items = itemList.getElementsByTagName('li'); // get the element <li> tags
+	// Convert HTML Collection to an Array
+	Array.from(items).forEach(function(item){ // loops through the items aka <li> tags
+		var itemName = item.firstChild.textContent; // create itemName variable for placeholder
+		if(itemName.toLowerCase().indexOf(text) != -1){ // if the input is not -1 aka match with the item list
+			item.style.display = 'block';
+		} else { // if not
+			item.style.display = 'none';
+		}
+	});
+}
