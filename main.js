@@ -254,6 +254,7 @@ Person.prototype.getFullName = function() {
 */
 
 // Class
+/*
 class Person { // this does the same thing just like the above syntax (BETTER WAY)
 	constructor(firstName, lastName, dob) { // create a constructor method (function inside of a class)
 		this.firstName = firstName;
@@ -278,6 +279,68 @@ console.log(person2);
 console.log(person2.dob);
 console.log(person1.getBirthYear());
 console.log(person1.getFullName());
+*/
+
+// DOM (Document Object Model) / User Interface
+// Single element selector
+/*
+console.log(document.getElementById('my-form')); // get 1 element by the ID
+console.log(document.querySelector('h1')); // to get other elemets/things than by the ID
+*/
+
+// Multiple element selector
+/*
+console.log(document.querySelectorAll('.item')); // ALWAYS use these 3 element selector (BETTER WAY)
+*/
+
+// how to take the items then get it all/output it all of them
+/*
+const items = document.querySelectorAll('.item');
+
+items.forEach((item) => console.log(item)); // loops through item class then get/output each of them
+*/
+
+// Manipulating DOM element
+/*
+const ul = document.querySelector('.items'); // assign the item class into the ul variable, so it can be manipulated
+
+ul.remove(); // the remove method is to remove the class items
+ul.lastElementChild.remove(); // the lastElementChild selector used to remove the last element of items class
+ul.firstElementChild.textContent = 'Hello'; // to change the text/value of the firstElementChild aka first <li> tags
+ul.children[1].innerText = 'Brad'; // but if the element is in the middle of the itmes children, use children[] (with index to selecting) then change the text/value with innerText
+ul.lastElementChild.innerHTML = '<h1>Hello</h1>'; // to change the tags element dynamically with innerHTML 
+*/
+
+// Manipulating style CSS
+/*
+const btn = document.querySelector('.btn');
+btn.style.background = 'red'; // change the background color of btn class
+
+btn.addEventListener('click', (e) => { // create event listener, the first is the EVENT, 'click' event is WHEN the element is CLICK-ed, second is FUNCTION, (e) is tkaes in an event parameters what happens when it's CLICK-ed
+	e.preventDefault();
+	// console.log(e);
+	
+	document.querySelector('#my-form').style.background = '#ccc'; // change background body
+	document.querySelector('body').classList.add('bg-dark'); // add class to the style of the element
+	document.querySelector('.items').lastElementChild.innerHTML = '<h1>Hello</h1>'; // change html tags
+	
+	});
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
