@@ -50,7 +50,7 @@
 // li[1].style.backgroundColor = 'yellow';
 
 // // Gives error
-// items.style.backgroundColor = '#f4f4f4';
+// //items.style.backgroundColor = '#f4f4f4';
 
 // for(var i = 0; i < li.length; i++){
 //   li[i].style.backgroundColor = '#f4f4f4';
@@ -93,26 +93,26 @@
 
 // TRAVERSING THE DOM //
 // var itemList = document.querySelector('#items');
-// parentNode property
-// console.log(itemList.parentNode); // output the PARENT of the items ID
+// parentNode
+// console.log(itemList.parentNode);
 // itemList.parentNode.style.backgroundColor = '#f4f4f4';
-// console.log(itemList.parentNode.parentNode.parentNode); output the THIRD/FIRST PARENT of the items ID
+// console.log(itemList.parentNode.parentNode.parentNode);
 
-// parentElement property (SAME AS parentNode)
+// parentElement
 // console.log(itemList.parentElement);
 // itemList.parentElement.style.backgroundColor = '#f4f4f4';
 // console.log(itemList.parentElement.parentElement.parentElement);
 
-// childNodes (BETTER NOT TO USE THIS)
-// console.log(itemList.childNodes); // the CHILD of the items ID
+// childNodes
+// console.log(itemList.childNodes);
 
-// console.log(itemList.children); // maybe use THIS INSTEAD
+// console.log(itemList.children);
 // console.log(itemList.children[1]);
 // itemList.children[1].style.backgroundColor = 'yellow';
 
-// // FirstChild (NOT USED)
+// // FirstChild
 // console.log(itemList.firstChild);
-// firstElementChild (BETTER USE THIS)
+// // firstElementChild
 // console.log(itemList.firstElementChild);
 // itemList.firstElementChild.textContent = 'Hello 1';
 
@@ -123,41 +123,120 @@
 // console.log(itemList.lastElementChild);
 // itemList.lastElementChild.textContent = 'Hello 4';
 
-// nextSibling (SAME AS CHILD)
+// nextSibling
 // console.log(itemList.nextSibling);
-// nextElementSibling // use THIS INSTEAD
+// // nextElementSibling
 // console.log(itemList.nextElementSibling);
 
-// previousSibling (SAME AS CHILD)
+// previousSibling
 // console.log(itemList.previousSibling);
-// previousElementSibling // use THIS INSTEAD
+// previousElementSibling
 // console.log(itemList.previousElementSibling);itemList.previousElementSibling.style.color = 'green';
 
 // createElement
 
-// Create a div
-var newDiv =  document.createElement('div');
+// // Create a div
+// var newDiv =  document.createElement('div');
 
-// Add class
-newDiv.className= 'hello';
+// // Add class
+// newDiv.className= 'hello';
 
-// Add id
- newDiv.id = 'hello1';
+// // Add id
+// newDiv.id = 'hello1';
 
-// Add attr
-newDiv.setAttribute('title', 'Hello Div'); // create title="Hello Div"
+// // Add attr
+// newDiv.setAttribute('title', 'Hello Div');
 
-// Create text node
-var newDivText = document.createTextNode('Hello World'); // add a value to the newDiv element that has been created before
+// // Create text node
+// var newDivText = document.createTextNode('Hello World');
 
-// Add text to div
- newDiv.appendChild(newDivText);
+// // Add text to div
+// newDiv.appendChild(newDivText);
 
- var container = document.querySelector('header .container');
- var h1 = document.querySelector('header h1');
+// var container = document.querySelector('header .container');
+// var h1 = document.querySelector('header h1');
 
-console.log(newDiv);
+// console.log(newDiv);
 
- newDiv.style.fontSize = '30px';
+// newDiv.style.fontSize = '30px';
 
- container.insertBefore(newDiv, h1);
+// container.insertBefore(newDiv, h1);
+
+// EVENTS //
+
+// var button = document.getElementById('button').addEventListener('click', buttonClick);
+
+// function buttonClick(e){
+//   //console.log('Button clicked');
+//   // document.getElementById('header-title').textContent = 'Changed';
+//   // document.querySelector('#main').style.backgroundColor = '#f4f4f4';
+//   //console.log(e);
+
+//    console.log(e.target);
+//   // console.log(e.target.id);
+//   // console.log(e.target.className);
+//   // console.log(e.target.classList);
+//   // var output = document.getElementById('output');
+//   // output.innerHTML = '<h3>'+e.target.id+'</h3>';
+
+//   // console.log(e.type);
+
+//   //console.log(e.clientX); // event from the window
+//   //console.log(e.clientY);
+
+//   //console.log(e.offsetX); // event from the element
+//   //console.log(e.offsetY);
+
+//   // console.log(e.altKey);
+//   // console.log(e.ctrlKey);
+//   // console.log(e.shiftKey);
+// }
+
+// var button = document.getElementById('button');
+// var box = document.getElementById('box');
+
+// button.addEventListener('click', runEvent);
+// button.addEventListener('dblclick', runEvent);
+//button.addEventListener('mousedown', runEvent);
+//button.addEventListener('mouseup', runEvent);
+
+//box.addEventListener('mouseenter', runEvent);
+//box.addEventListener('mouseleave', runEvent);
+
+//box.addEventListener('mouseover', runEvent);
+//box.addEventListener('mouseout', runEvent);
+
+// box.addEventListener('mousemove', runEvent);
+
+ var itemInput = document.querySelector('input[type="text"]');
+ var form = document.querySelector('form');
+ var select = document.querySelector('select');
+
+// temInput.addEventListener('keydown', runEvent);
+// itemInput.addEventListener('keyup', runEvent);
+// itemInput.addEventListener('keypress', runEvent);
+
+// itemInput.addEventListener('focus', runEvent);
+// itemInput.addEventListener('blur', runEvent);
+
+// itemInput.addEventListener('cut', runEvent);
+// itemInput.addEventListener('paste', runEvent);
+
+// itemInput.addEventListener('input', runEvent);
+
+// select.addEventListener('change', runEvent);
+// select.addEventListener('input', runEvent);
+
+ form.addEventListener('submit', runEvent);
+
+ function runEvent(e){
+  e.preventDefault();
+  console.log('EVENT TYPE: '+e.type);
+
+  //console.log(e.target.value);
+  // document.getElementById('output').innerHTML = '<h3>'+e.target.value+'</h3>';
+
+  // output.innerHTML = '<h3>MouseX: '+e.offsetX+' </h3><h3>MouseY: '+e.offsetY+'</h3>';
+
+   // document.body.style.backgroundColor = "rgb("+e.offsetX+","+e.offsetY+", 40)";
+ }
