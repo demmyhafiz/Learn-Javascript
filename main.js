@@ -220,10 +220,64 @@ function addNums(num1, num2) { // this is a function
 
 console.log(addNums(5,5));
 */
-
+/*
 const addNums = (num1, num2) => num1 + num2; // convert it into arrow function
 
 console.log(addNums(6,6));
+*/
+
+// Object oriented
+// Constructor function
+/*
+function Person(firstName, lastName, dob) { // Person is object (constructor function), set parameter to pass in the properties it want to be able to set
+	this.firstName = firstName; // when the parameter has been passed in, set it to properties of the object (with this.)
+	this.lastName = lastName;
+	this.dob = new Date(dob); // turn in to date object using date constructor
+	/*
+	this.getBirthYear = function() { // create a method to show the full year of birth
+		return this.dob.getFullYear();
+	}
+	this.getFullName = function() { // create a method to show the full name
+		return `${this.firstName} ${this.lastName}`;
+	}
+	*/
+	/*
+}
+
+Person.prototype.getBirthYear = function() { // this is a better way to create a method function with prototype object
+	return this.dob.getFullYear();
+}
+
+Person.prototype.getFullName = function() {
+	return `${this.firstName} ${this.lastName}`;
+}
+*/
+
+// Class
+class Person { // this does the same thing just like the above syntax (BETTER WAY)
+	constructor(firstName, lastName, dob) { // create a constructor method (function inside of a class)
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.dob = new Date(dob);
+	}
+	getBirthYear() { // add a method want to use in this parenthesis
+		return this.dob.getFullYear();
+	}
+	getFullName() {
+		return `${this.firstName} ${this.lastName}`;
+	}
+}
+
+
+// Instantiate object
+const person1 = new Person('John','Doe','4-3-1980'); // person1 set it to Person object (with new) 
+const person2 = new Person('Mary','Smith','3-6-1970');
+
+console.log(person1);
+console.log(person2);
+console.log(person2.dob);
+console.log(person1.getBirthYear());
+console.log(person1.getFullName());
 
 
 
