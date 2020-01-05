@@ -4,13 +4,13 @@
 // console.log(document.domain);
 // console.log(document.URL);
 // console.log(document.title);
-// document.title =  123;
+// //document.title =  123;
 // console.log(document.doctype);
 // console.log(document.head);
 // console.log(document.body);
 // console.log(document.all);
 // console.log(document.all[10]);
-// document.all[10].textContent = 'Hello';
+// // document.all[10].textContent = 'Hello';
 // console.log(document.forms[0]);
 // console.log(document.links);
 // console.log(document.images);
@@ -21,7 +21,7 @@
 // var header = document.getElementById('main-header');
 // console.log(headerTitle);
 // headerTitle.textContent = 'Hello';
-// headerTitle.innerText = 'Goodbye'; // better way to use this, cause in console would do the same thing (changes)
+// headerTitle.innerText = 'Goodbye';
 // console.log(headerTitle.innerText);
 // headerTitle.innerHTML = '<h3>Hello</h3>';
 // header.style.borderBottom = 'solid 3px #000';
@@ -50,7 +50,7 @@
 // li[1].style.backgroundColor = 'yellow';
 
 // // Gives error
-// //items.style.backgroundColor = '#f4f4f4';
+// items.style.backgroundColor = '#f4f4f4';
 
 // for(var i = 0; i < li.length; i++){
 //   li[i].style.backgroundColor = '#f4f4f4';
@@ -81,11 +81,83 @@
 // console.log(titles);
 // titles[0].textContent = 'Hello';
 
- var odd = document.querySelectorAll('li:nth-child(odd)');
+// var odd = document.querySelectorAll('li:nth-child(odd)');
 // var even= document.querySelectorAll('li:nth-child(even)');
 
- for(var i = 0; i < odd.length; i++){
-   odd[i].style.backgroundColor = '#f4f4f4';
+// for(var i = 0; i < odd.length; i++){
+//   odd[i].style.backgroundColor = '#f4f4f4';
 //   even[i].style.backgroundColor = '#ccc';
- }
+// }
 
+
+
+// TRAVERSING THE DOM //
+// var itemList = document.querySelector('#items');
+// parentNode property
+// console.log(itemList.parentNode); // output the PARENT of the items ID
+// itemList.parentNode.style.backgroundColor = '#f4f4f4';
+// console.log(itemList.parentNode.parentNode.parentNode); output the THIRD/FIRST PARENT of the items ID
+
+// parentElement property (SAME AS parentNode)
+// console.log(itemList.parentElement);
+// itemList.parentElement.style.backgroundColor = '#f4f4f4';
+// console.log(itemList.parentElement.parentElement.parentElement);
+
+// childNodes (BETTER NOT TO USE THIS)
+// console.log(itemList.childNodes); // the CHILD of the items ID
+
+// console.log(itemList.children); // maybe use THIS INSTEAD
+// console.log(itemList.children[1]);
+// itemList.children[1].style.backgroundColor = 'yellow';
+
+// // FirstChild (NOT USED)
+// console.log(itemList.firstChild);
+// firstElementChild (BETTER USE THIS)
+// console.log(itemList.firstElementChild);
+// itemList.firstElementChild.textContent = 'Hello 1';
+
+
+// lastChild
+// console.log(itemList.lastChild);
+// lastElementChild
+// console.log(itemList.lastElementChild);
+// itemList.lastElementChild.textContent = 'Hello 4';
+
+// nextSibling (SAME AS CHILD)
+// console.log(itemList.nextSibling);
+// nextElementSibling // use THIS INSTEAD
+// console.log(itemList.nextElementSibling);
+
+// previousSibling (SAME AS CHILD)
+// console.log(itemList.previousSibling);
+// previousElementSibling // use THIS INSTEAD
+// console.log(itemList.previousElementSibling);itemList.previousElementSibling.style.color = 'green';
+
+// createElement
+
+// Create a div
+var newDiv =  document.createElement('div');
+
+// Add class
+newDiv.className= 'hello';
+
+// Add id
+ newDiv.id = 'hello1';
+
+// Add attr
+newDiv.setAttribute('title', 'Hello Div'); // create title="Hello Div"
+
+// Create text node
+var newDivText = document.createTextNode('Hello World'); // add a value to the newDiv element that has been created before
+
+// Add text to div
+ newDiv.appendChild(newDivText);
+
+ var container = document.querySelector('header .container');
+ var h1 = document.querySelector('header h1');
+
+console.log(newDiv);
+
+ newDiv.style.fontSize = '30px';
+
+ container.insertBefore(newDiv, h1);
