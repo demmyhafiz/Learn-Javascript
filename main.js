@@ -327,7 +327,32 @@ btn.addEventListener('click', (e) => { // create event listener, the first is th
 	});
 */
 
+// Example of DOM element
+const myForm = document.querySelector('#my-form'); // grab all the element from the DOM
+const nameInput = document.querySelector('#name');
+const emailInput = document.querySelector('#email');
+const msg = document.querySelector('.msg');
+const userList = document.querySelector('#users');
 
+myForm.addEventListener('submit', onSubmit); // use 'submit' event, because submit it's in form element (type="submit" in btn class), and onSubmit parameter to passed in
+
+function onSubmit(e) { // create function when the element has been clicked
+	e.preventDefault();
+	
+	if(nameInput.value === '' || emailInput.value === '') { // if the name or email textbox is empty
+		msg.classList.add('error'); // add class error style to the class .msg
+		msg.innerHTML = 'Please enter all fields'; // add/change the value of .msg class to that
+		setTimeout(() => msg.remove(), 3000); // then remove/make it dissapear when it hits 3seconds
+}	else {
+	const li = document.createElement('li'); // create <li> tags
+	li.classList.add('bg-dark'); // change the style of the element
+	li.appendChild(document.createTextNode(`${nameInput.value} : ${emailInput.value}`)); // this is to add a child/element <li></li> by the nameInput and emailInput values
+	userList.appendChild(li); // then add the result of the element we get before, add it to the .users class aka <ul></ul> element below it
+	
+	nameInput.value = ''; // clear name textbox
+	emailInput.value = ''; // clear email textbox
+}
+}
 
 
 
