@@ -326,7 +326,7 @@ btn.addEventListener('click', (e) => { // create event listener, the first is th
 	
 	});
 */
-
+/*
 // Example of DOM element
 const myForm = document.querySelector('#my-form'); // grab all the element from the DOM
 const nameInput = document.querySelector('#name');
@@ -353,13 +353,75 @@ function onSubmit(e) { // create function when the element has been clicked
 	emailInput.value = ''; // clear email textbox
 }
 }
+*/
+/*
+const book1 = {
+	title: 'Book one',
+	author: 'John Doe',
+	year: '2013',
+	getSummary: function() {
+		return `${this.title} was written by ${this.author} in ${this.year}!`;
+	}
+};
 
+const book2 = {
+	title: 'Book two',
+	author: 'Jane Doe',
+	year: '2016',
+	getSummary: function() {
+		return `${this.title} was written by ${this.author} in ${this.year}!`;
+	}
+};
 
+console.log(book1.getSummary());
+console.log(book2.getSummary());
+*/
 
+function Book(title, author, year) { // this is Constructor
+	this.title = title; // it means THIS title should be assign to title parameter so it can be called
+	this.author = author;
+	this.year = year;
+	//this.getSummary = function() {
+	//	return `${this.title} was written by ${this.author} in ${this.year}!`;
+	//};
+}
 
+Book.prototype.getSummary = function() { //do the same thing like before, but place getSummary object in Prototype (as it needs)
+	return `${this.title} was written by ${this.author} in ${this.year}!`;
+};
 
+Book.prototype.getAge = function() {
+	const years = new Date().getFullYear() - this.year;
+	return `${this.title} is ${years} years old.`;
+};
+/*
+Book.prototype.revise = function(newYear) {
+	this.year = newYear;
+	this.revising = true;
+};
 
+const book1 = new Book('Book one', 'John Doe', '2013'); // Instantiate the object
+const book2 = new Book('Book two', 'Jane Doe', '2016');
 
+console.log(book2);
+book2.revise(new Date().getFullYear());
+console.log(book2);
+*/
+
+function Magazine(title, author, year, month) { // create magazine constructor with title author year month parameter to passed in
+		this.month = month; // it means THIS month should be assign to title parameter so it can be called
+		Book.call(this, title, author, year); // Inherit this.title this.author this.year from Book constructor
+		
+}
+// Inherit ALL prototype from Book
+Magazine.prototype = Object.create(Book.prototype);
+Magazine.prototype.constructor = Magazine; // Make the Magazine a Constructor
+
+const mag1 = new Magazine('Mag one', 'John Doe', '2018', 'Jan'); // Instantiate the object
+
+console.log(mag1);
+console.log(mag1.getAge());
+console.log(mag1.getSummary());
 
 
 
