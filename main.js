@@ -376,7 +376,8 @@ const book2 = {
 console.log(book1.getSummary());
 console.log(book2.getSummary());
 */
-
+// BEST PRACTICE TO USE CONSTRUCTOR OBJECT with ES5
+/*
 function Book(title, author, year) { // this is Constructor
 	this.title = title; // it means THIS title should be assign to title parameter so it can be called
 	this.author = author;
@@ -407,7 +408,7 @@ console.log(book2);
 book2.revise(new Date().getFullYear());
 console.log(book2);
 */
-
+/*
 function Magazine(title, author, year, month) { // create magazine constructor with title author year month parameter to passed in
 		this.month = month; // it means THIS month should be assign to title parameter so it can be called
 		Book.call(this, title, author, year); // Inherit this.title this.author this.year from Book constructor
@@ -422,11 +423,75 @@ const mag1 = new Magazine('Mag one', 'John Doe', '2018', 'Jan'); // Instantiate 
 console.log(mag1);
 console.log(mag1.getAge());
 console.log(mag1.getSummary());
+*/
 
+// NOT BEST PRACTICE/WAY CONSTRUCTOR WITH PROTOTYPE OBJECT
+/*
+const bookProtos = {
+	getSummary: function() {
+		return `${this.title} was written by ${this.author} in ${this.year}!`;
+	},
+	getAge: function() {
+		const years = new Date().getFullYear() - this.year;
+	return `${this.title} is ${years} years old.`;
+	}
+};
 
+const book1 = Object.create(bookProtos);
+	book1.title = 'Book one';
+	book1.author = 'John Doe';
+	book1.year = '2013';
 
+console.log(book1);
+*/
 
+// AND MUCH BETTER WAY TO USE CONSTRUCTOR WITH Class with ES6
 
+class Book {
+constructor(title, author, year) {
+this.title = title;
+this.author = author;
+this.year = year;	
+} // after this line is to ADD METHOD/FUNCTION/PROTOTYPE things like before
+
+getSummary() {
+	return `${this.title} was written by ${this.author} in ${this.year}!`;
+}
+/*
+getAge() {
+	const years = new Date().getFullYear() - this.year;
+	return `${this.title} is ${years} years old.`;
+}
+
+revise(newYear) {
+	this.year = newYear;
+	this.revising = true;
+}
+static topBookStore() { // STATIC method = can use without instantiate the object
+	return 'Barnes & Noble';
+} 
+*/
+};
+/*
+const book1 = new Book('Book one', 'John Doe', '2013');
+
+console.log(book1);
+console.log(Book.topBookStore());
+*/
+// MUCH BETTER WAY TO INHERIT CONSTRUCTOR with Subclass
+class Magazine extends Book { // it means inherit the Book constructor to Magazine constructor
+	constructor(title, author, year, month) { // then set the Magazine constructor
+		super(title, author, year); // assign the title author year parameter from Book to Magazine
+		this.month = month;
+	}
+};
+
+const mag1 = new Magazine('Mag one', 'John Doe', '2018', 'Dec');
+
+console.log(mag1);
+console.log(mag1.getSummary());
+
+// so always use CLASS and SUBCLASS
 
 
 
