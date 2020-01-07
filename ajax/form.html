@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>AJAX - PHP Form</title>
+</head>
+
+<body>
+    <button id="button">Get Name</button>
+    <br><br>
+    <h1>GET FORM by PHP request</h1>
+    <form method="GET" action="proses.php">
+        <input type="text" name="name">
+        <input type="submit" value="Submit">
+    </form>
+    <h1>GET FORM by AJAX request</h1>
+    <form id="getForm">
+        <input type="text" name="name" id="name1">
+        <input type="submit" value="Submit">
+    </form>
+    <h1>POST FORM by PHP request</h1>
+    <form method="POST" action="proses.php">
+        <input type="text" name="name">
+        <input type="submit" value="Submit">
+    </form>
+    <h1>POST FORM by AJAX request</h1>
+    <form id="postForm">
+        <input type="text" name="name" id="name2">
+        <input type="submit" value="Submit">
+    </form>
+    <br>
+    <div id="user1"></div>
+    <br>
+    <div id="user2"></div>
+
+
+
+    <script src="main4.js"></script>
+</body>
+
+</html>
